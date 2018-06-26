@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 773241314}
   - component: {fileID: 773241313}
   m_Layer: 0
-  m_Name: Example
+  m_Name: Pancake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,21 +142,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprites:
-  - {fileID: 21300000, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300002, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300004, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300006, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300008, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300010, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300012, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300014, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300016, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300018, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300020, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300022, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
-  - {fileID: 21300024, guid: d3e5ef0c68af347c9afb45850acf1491, type: 3}
+  - {fileID: 21300026, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300028, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300030, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300032, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300034, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300036, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300038, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300040, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300042, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
+  - {fileID: 21300044, guid: 76718596b26b74e94bf5a2601089c3f5, type: 3}
   OffsetX: 0
-  OffsetY: 0.1
+  OffsetY: 0.0625
   RotationSpeed: 1
 --- !u!212 &773241314
 SpriteRenderer:
