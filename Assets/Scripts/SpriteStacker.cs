@@ -10,33 +10,40 @@ public class SpriteStacker : MonoBehaviour {
 	float CurrentX = 0;
 	float CurrentY = 0;
 	public float RotationSpeed = 1;
-	List<GameObject> spriteCollection;
+	public bool generateAtRuntime = true;
 
-	// Use this for initialization
 	void Start () {
-		spriteCollection = new List<GameObject>();
+		if(generateAtRuntime == true){
+			StackGen();
+		}
+	}
+	void Update () {
+		foreach(Transform spriteContainer in gameObject.transform){
+			if(spriteContainer.name == gameObject.name + " Sprite Container"){
+				foreach(Transform stacked in spriteContainer.transform ){
+					if(stacked) stacked.Rotate(new Vector3(0f,0f,RotationSpeed));
+				}
+			}
+		}
+	}
+	public void StackGen(){
 		int count = 0;
-		foreach (Sprite s in Sprites){
-			
+		GameObject spriteContainer = new GameObject(gameObject.name+" Sprite Container");
+		spriteContainer.transform.SetParent(gameObject.transform);
+		foreach (Sprite s in Sprites){	
 			GameObject spriteGameObject = new GameObject(gameObject.name+" Sprite "+count.ToString());
 			SpriteRenderer spriteRenderer = spriteGameObject.AddComponent<SpriteRenderer>();
 			spriteRenderer.sprite = s;
 			spriteRenderer.sortingOrder = count;
 			spriteRenderer.sortingLayerID = gameObject.GetComponent<SpriteRenderer>().sortingLayerID;
-			spriteGameObject.transform.position = new Vector3(CurrentX,CurrentY,0);
+			spriteRenderer.sharedMaterial = gameObject.GetComponent<SpriteRenderer>().sharedMaterial;
+			spriteGameObject.transform.position = new Vector3(gameObject.transform.position.x + CurrentX,gameObject.transform.position.y + CurrentY, 0);
 			spriteGameObject.transform.rotation = gameObject.transform.rotation;
-			spriteGameObject.transform.SetParent(gameObject.transform);
-			spriteCollection.Add(spriteGameObject);
+			spriteGameObject.transform.SetParent(spriteContainer.transform);
 			CurrentX = CurrentX+OffsetX;
 			CurrentY = CurrentY+OffsetY;
 			count++;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		foreach(GameObject g in spriteCollection){
-			g.transform.Rotate(new Vector3(0f,0f,RotationSpeed));
-		}
+		generateAtRuntime = false;
 	}
 }
