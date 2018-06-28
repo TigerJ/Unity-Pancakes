@@ -9,22 +9,37 @@ public class SpriteStacker : MonoBehaviour {
 	public float OffsetY = 0;
 	float CurrentX = 0;
 	float CurrentY = 0;
-	public float RotationSpeed = 1;
-	public bool generateAtRuntime = true;
 
-	void Start () {
+    public enum RotationStyle { Constant, Targeted }
+    public bool generateAtRuntime = true;
+
+    [HideInInspector]
+    public GameObject RotationTarget;
+    [HideInInspector]
+    public RotationStyle rotationStyle;
+    [HideInInspector]
+    public float RotationSpeed = 1;
+    void Start () {
 		if(generateAtRuntime == true){
 			StackGen();
 		}
 	}
-	void Update () {
-		foreach(Transform spriteContainer in gameObject.transform){
-			if(spriteContainer.name == gameObject.name + " Sprite Container"){
-				foreach(Transform stacked in spriteContainer.transform ){
-					if(stacked) stacked.Rotate(new Vector3(0f,0f,RotationSpeed));
-				}
-			}
-		}
+	void Update () {        
+        foreach (Transform spriteContainer in gameObject.transform)
+        {
+            if (spriteContainer.name == gameObject.name + " Sprite Container")
+            {
+                foreach (Transform stacked in spriteContainer.transform)
+                {
+                    if (rotationStyle == RotationStyle.Constant)
+                        stacked.Rotate(new Vector3(0f, 0f, RotationSpeed));
+                    if (rotationStyle == RotationStyle.Targeted)
+                    {
+                        
+                    }
+                }
+            }
+        }
 	}
 	public void StackGen(){
 		int count = 0;

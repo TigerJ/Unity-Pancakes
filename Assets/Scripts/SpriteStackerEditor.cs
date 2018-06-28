@@ -10,7 +10,20 @@ public class SpriteStackerEditor : Editor
         DrawDefaultInspector();
         
         SpriteStacker spriteStacker = (SpriteStacker)target;
-        if(GUILayout.Button("GenerateStack"))
+        EditorGUILayout.Separator();
+        EditorGUILayout.LabelField("Rotation Settings");
+        spriteStacker.RotationSpeed = EditorGUILayout.Slider("Speed", spriteStacker.RotationSpeed, -360, 360);
+        spriteStacker.rotationStyle = (SpriteStacker.RotationStyle)EditorGUILayout.EnumPopup("Style", spriteStacker.rotationStyle);
+        if (spriteStacker.rotationStyle == SpriteStacker.RotationStyle.Constant)
+        {
+
+        }
+        if (spriteStacker.rotationStyle == SpriteStacker.RotationStyle.Targeted)
+        {
+            spriteStacker.RotationTarget = (GameObject)EditorGUILayout.ObjectField("Target", spriteStacker.RotationTarget, typeof(GameObject), true);
+        }
+
+        if (GUILayout.Button("GenerateStack"))
         {
             spriteStacker.StackGen();
         }
