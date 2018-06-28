@@ -35,7 +35,10 @@ public class SpriteStacker : MonoBehaviour {
                         stacked.Rotate(new Vector3(0f, 0f, RotationSpeed));
                     if (rotationStyle == RotationStyle.Targeted)
                     {
-                        
+                        Vector3 targetPosition = RotationTarget.transform.position;
+						Vector3 direction = targetPosition - stacked.position;
+						float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+						stacked.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                     }
                 }
             }
