@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 
 [CustomEditor(typeof(SpriteStacker))]
-public class ObjectBuilderEditor : Editor
+public class SpriteStackerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
